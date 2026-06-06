@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Meryem Koç | Robotics Software Engineer</title>
+  <meta
+    name="description"
+    content="Meryem Koç — Robotics Software Engineer working on multi-robot SLAM, autonomous driving perception, warehouse robotics, and safety-oriented AI systems."
+  />
 
   <style>
     :root {
@@ -22,6 +27,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -94,7 +103,7 @@
       padding: 9px 14px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--muted);
       font-size: 0.92rem;
       margin-bottom: 24px;
@@ -159,7 +168,7 @@
     }
 
     .secondary {
-      background: rgba(255,255,255,0.07);
+      background: rgba(255, 255, 255, 0.07);
     }
 
     .stats {
@@ -171,7 +180,7 @@
 
     .stat {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.06);
       border-radius: 20px;
       padding: 16px;
     }
@@ -200,18 +209,18 @@
       min-height: 560px;
       overflow: hidden;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04)),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
         radial-gradient(circle at 50% 20%, rgba(34, 211, 238, 0.28), transparent 36%),
         radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.32), transparent 42%);
-      box-shadow: 0 30px 100px rgba(0,0,0,0.38);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.38);
     }
 
     .grid-glow {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
       background-size: 34px 34px;
       mask-image: radial-gradient(circle at center, black, transparent 72%);
       opacity: 0.45;
@@ -282,7 +291,7 @@
     .pill {
       padding: 8px 11px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       background: rgba(5, 8, 22, 0.56);
       backdrop-filter: blur(12px);
       color: #dbeafe;
@@ -294,7 +303,7 @@
       position: absolute;
       width: 390px;
       height: 390px;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 50%;
       top: 62px;
       left: 50%;
@@ -326,8 +335,13 @@
     }
 
     @keyframes spin {
-      from { transform: translateX(-50%) rotate(0deg); }
-      to { transform: translateX(-50%) rotate(360deg); }
+      from {
+        transform: translateX(-50%) rotate(0deg);
+      }
+
+      to {
+        transform: translateX(-50%) rotate(360deg);
+      }
     }
 
     section {
@@ -353,6 +367,13 @@
       letter-spacing: -0.06em;
     }
 
+    .section-description {
+      color: var(--muted);
+      max-width: 760px;
+      margin-top: 14px;
+      font-size: 1.02rem;
+    }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -361,7 +382,7 @@
 
     .card {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.065);
+      background: rgba(255, 255, 255, 0.065);
       border-radius: 26px;
       padding: 24px;
       transition: 0.2s ease;
@@ -370,7 +391,7 @@
     .card:hover {
       transform: translateY(-4px);
       border-color: rgba(34, 211, 238, 0.35);
-      background: rgba(255,255,255,0.09);
+      background: rgba(255, 255, 255, 0.09);
     }
 
     .card h3 {
@@ -385,8 +406,92 @@
       font-size: 0.96rem;
     }
 
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .achievement-card {
+      position: relative;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.065);
+      border-radius: 26px;
+      padding: 22px;
+      min-height: 250px;
+      transition: 0.2s ease;
+      overflow: hidden;
+    }
+
+    .achievement-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(34, 211, 238, 0.18), transparent 34%);
+      opacity: 0;
+      transition: 0.2s ease;
+    }
+
+    .achievement-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34, 211, 238, 0.35);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .achievement-card:hover::before {
+      opacity: 1;
+    }
+
+    .achievement-card.highlight {
+      grid-column: span 2;
+      background:
+        linear-gradient(145deg, rgba(139, 92, 246, 0.22), rgba(34, 211, 238, 0.1)),
+        rgba(255, 255, 255, 0.07);
+    }
+
+    .achievement-rank {
+      position: relative;
+      z-index: 1;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.13);
+      border: 1px solid rgba(34, 211, 238, 0.24);
+      color: #a5f3fc;
+      font-size: 0.78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .achievement-card h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 1.18rem;
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+      margin-bottom: 10px;
+    }
+
+    .achievement-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 14px;
+    }
+
+    .achievement-card span {
+      position: relative;
+      z-index: 1;
+      color: var(--cyan);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
     footer {
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding: 38px 0;
       color: var(--muted);
     }
@@ -396,6 +501,16 @@
       justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
+    }
+
+    @media (max-width: 1000px) {
+      .achievement-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .achievement-card.highlight {
+        grid-column: span 2;
+      }
     }
 
     @media (max-width: 900px) {
@@ -417,6 +532,38 @@
         display: none;
       }
     }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, var(--max));
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 18vw, 4.8rem);
+      }
+
+      .lead {
+        font-size: 1.08rem;
+      }
+
+      .achievement-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .achievement-card.highlight {
+        grid-column: span 1;
+      }
+
+      .avatar {
+        width: 200px;
+        height: 200px;
+      }
+
+      .orbit {
+        width: 330px;
+        height: 330px;
+      }
+    }
   </style>
 </head>
 
@@ -424,8 +571,10 @@
   <header class="container">
     <nav>
       <a href="#" class="brand">Meryem<span>.</span>Koç</a>
+
       <div class="nav-links">
         <a href="#work">Work</a>
+        <a href="#achievements">Achievements</a>
         <a href="#research">Research</a>
         <a href="#contact">Contact</a>
       </div>
@@ -452,22 +601,22 @@
 
         <div class="buttons">
           <a class="btn primary" href="#work">View Projects</a>
-          <a class="btn secondary" href="https://github.com/codermery" target="_blank">GitHub</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/meryemkoc" target="_blank">LinkedIn</a>
+          <a class="btn secondary" href="https://github.com/codermery" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/meryemkoc" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
 
         <div class="stats">
           <div class="stat">
-            <b>7th</b>
-            <span>BARN Challenge global ranking</span>
+            <b>Winner</b>
+            <span>SPADE Drone Challenge · Portugal</span>
+          </div>
+          <div class="stat">
+            <b>Top 10</b>
+            <span>BARN Challenge robotics benchmark</span>
           </div>
           <div class="stat">
             <b>5+</b>
-            <span>Robotics & AI competitions</span>
-          </div>
-          <div class="stat">
-            <b>ROS2</b>
-            <span>SLAM, navigation, perception</span>
+            <span>Robotics, AI & autonomous systems competitions</span>
           </div>
         </div>
       </div>
@@ -509,6 +658,10 @@
       <div class="section-title">
         <div class="eyebrow">Featured Work</div>
         <h2>Selected engineering & research projects</h2>
+        <p class="section-description">
+          A focused portfolio across robotics, autonomous systems, computer vision,
+          embedded control, and applied AI.
+        </p>
       </div>
 
       <div class="cards">
@@ -538,10 +691,108 @@
       </div>
     </section>
 
+    <section id="achievements" class="container">
+      <div class="section-title">
+        <div class="eyebrow">Achievements</div>
+        <h2>Competition-tested robotics, AI, and autonomous systems work</h2>
+        <p class="section-description">
+          Selected international and national competition experiences across drone systems,
+          robot navigation, software-defined vehicles, AI applications, and embedded robotics.
+        </p>
+      </div>
+
+      <div class="achievement-grid">
+        <article class="achievement-card highlight">
+          <div class="achievement-rank">Winner</div>
+          <h3>SPADE Drone Challenge</h3>
+          <p>
+            Winner of the SPADE Drone Challenge within the SPADE EU Project with
+            Eclipse Foundation, focused on SLAM-based autonomous drone navigation
+            at ShiftAppens, Portugal.
+          </p>
+          <span>Drone Systems · SLAM · Autonomous Navigation</span>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-rank">Top 10</div>
+          <h3>BARN Challenge</h3>
+          <p>
+            Ranked in the Top 10 in a robotics navigation benchmark focused on
+            robust motion planning in obstacle-dense environments.
+          </p>
+          <span>Navigation · Motion Planning · Robotics</span>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-rank">Finalist</div>
+          <h3>RoboCup German Open</h3>
+          <p>
+            Finalist experience in an international robotics competition,
+            working on autonomous robotics systems and real-world integration.
+          </p>
+          <span>Robotics · Autonomous Systems</span>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-rank">Finalist</div>
+          <h3>Meta Llama Hackathon</h3>
+          <p>
+            Finalist in an AI-focused hackathon, developing applied solutions
+            around large language models and intelligent software systems.
+          </p>
+          <span>AI · LLMs · Applied Software</span>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-rank">Finalist</div>
+          <h3>Teknofest</h3>
+          <p>
+            Finalist-level experience across robotics, autonomous systems,
+            embedded development, and applied engineering competitions.
+          </p>
+          <span>Robotics · Embedded Systems · Autonomy</span>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-rank">Finalist</div>
+          <h3>Eclipse SDV Hackathon Berlin</h3>
+          <p>
+            International software-defined vehicle hackathon experience focused
+            on automotive software, SDV technologies, and collaborative prototyping.
+          </p>
+          <span>SDV · Automotive Software · Eclipse</span>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-rank">Multiple Runs</div>
+          <h3>Teknofest Experiences</h3>
+          <p>
+            Multiple Teknofest competition cycles with hands-on experience in
+            team leadership, robotics development, prototyping, and field testing.
+          </p>
+          <span>Team Leadership · Robotics · Prototyping</span>
+        </article>
+
+        <article class="achievement-card">
+          <div class="achievement-rank">Portfolio</div>
+          <h3>Autonomous Systems Work</h3>
+          <p>
+            A growing portfolio combining robotics competitions, academic research,
+            autonomous perception, SLAM, and real-world engineering projects.
+          </p>
+          <span>Research · Engineering · Robotics</span>
+        </article>
+      </div>
+    </section>
+
     <section id="research" class="container">
       <div class="section-title">
         <div class="eyebrow">Research Focus</div>
         <h2>Robotics, perception, and autonomous systems</h2>
+        <p class="section-description">
+          My current work focuses on intelligent robotic systems that can perceive,
+          navigate, map, and operate in real-world environments.
+        </p>
       </div>
 
       <div class="cards">
@@ -575,12 +826,16 @@
       <div class="section-title">
         <div class="eyebrow">Contact</div>
         <h2>Let’s build autonomous systems.</h2>
+        <p class="section-description">
+          I am interested in robotics research, PhD opportunities, autonomous systems,
+          computer vision, and international engineering collaborations.
+        </p>
       </div>
 
       <div class="buttons">
         <a class="btn primary" href="mailto:yazilimcilikyolunda@gmail.com">Email Me</a>
-        <a class="btn secondary" href="https://github.com/codermery" target="_blank">GitHub</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/meryemkoc" target="_blank">LinkedIn</a>
+        <a class="btn secondary" href="https://github.com/codermery" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/meryemkoc" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </section>
   </main>
