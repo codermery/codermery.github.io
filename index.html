@@ -3,27 +3,662 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meryem Koç</title>
+  <title>Meryem Koç | Robotics Software Engineer</title>
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0d1324;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f7f7fb;
+      --muted: #a6adbb;
+      --accent: #7c3aed;
+      --accent-2: #06b6d4;
+      --accent-3: #22c55e;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(124, 58, 237, 0.28), transparent 34%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.22), transparent 30%),
+        linear-gradient(180deg, #070b14 0%, #0a0f1f 48%, #070b14 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 11, 20, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.15rem;
+    }
+
+    .logo span {
+      color: var(--accent-2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 48px;
+      align-items: center;
+      padding: 76px 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 24px;
+    }
+
+    .badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+      box-shadow: 0 0 18px rgba(6, 182, 212, 0.8);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.7rem);
+      line-height: 0.92;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #b9ccff 35%, #67e8f9 70%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 2vw, 1.45rem);
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 44px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 700;
+      border: 1px solid var(--card-border);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      border: none;
+      box-shadow: 0 18px 50px rgba(6, 182, 212, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 720px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 22px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .orb-card {
+      position: relative;
+      min-height: 440px;
+      border-radius: 34px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
+        radial-gradient(circle at 50% 20%, rgba(6, 182, 212, 0.28), transparent 36%),
+        radial-gradient(circle at 30% 80%, rgba(124, 58, 237, 0.34), transparent 42%);
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.36);
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 54px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+      animation: rotate 18s linear infinite;
+    }
+
+    .orbit:nth-child(2) {
+      inset: 100px;
+      animation-duration: 12s;
+      animation-direction: reverse;
+    }
+
+    .core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 130px;
+      height: 130px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow:
+        0 0 50px rgba(6, 182, 212, 0.65),
+        inset 0 0 28px rgba(255, 255, 255, 0.3);
+    }
+
+    .floating-label {
+      position: absolute;
+      padding: 10px 13px;
+      border-radius: 14px;
+      background: rgba(7, 11, 20, 0.72);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.9rem;
+      backdrop-filter: blur(14px);
+    }
+
+    .label-1 { top: 36px; left: 32px; }
+    .label-2 { right: 28px; top: 110px; }
+    .label-3 { left: 42px; bottom: 80px; }
+    .label-4 { right: 38px; bottom: 34px; }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .section-header {
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      color: var(--accent-2);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      margin-bottom: 12px;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 26px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(6, 182, 212, 0.38);
+      background: rgba(255, 255, 255, 0.085);
+    }
+
+    .card h3 {
+      font-size: 1.22rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(59, 130, 246, 0.13);
+      border: 1px solid rgba(147, 197, 253, 0.18);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 18px;
+      padding: 20px;
+      border-radius: 24px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+    }
+
+    .timeline-date {
+      color: var(--accent-2);
+      font-weight: 800;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 50px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .socials {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .orb-card {
+        min-height: 340px;
+      }
+
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Meryem Koç</h1>
-  <p>Robotics Software Engineer | Computer Vision | Autonomous Systems</p>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Meryem<span>.</span>Koç</a>
+        <div class="nav-links">
+          <a href="#work">Work</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-  <h2>About</h2>
-  <p>
-    I build perception and robotics systems for autonomous machines,
-    with a focus on multi-robot SLAM, autonomous driving perception,
-    and warehouse robotics.
-  </p>
+  <main>
+    <section class="hero container">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Robotics Software Engineer · Autonomous Systems · Computer Vision
+        </div>
 
-  <h2>Projects</h2>
-  <ul>
-    <li>Safety-Oriented Hybrid Perception Framework for Autonomous Driving</li>
-    <li>Multi-Robot SLAM and Map Merging</li>
-    <li>Deptron AMR Warehouse Robotics</li>
-  </ul>
+        <h1>
+          Building intelligent systems for <span class="gradient-text">autonomous machines.</span>
+        </h1>
 
-  <h2>Contact</h2>
-  <p>GitHub: codermery</p>
+        <p class="hero-subtitle">
+          I am <strong>Meryem Koç</strong>, a robotics software engineer working on
+          multi-robot SLAM, autonomous driving perception, and warehouse robotics.
+          I build systems that connect AI models with real-world machines.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#work">View Work</a>
+          <a class="btn btn-secondary" href="https://github.com/codermery" target="_blank">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/meryemkoc" target="_blank">LinkedIn</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>7th</strong>
+            <span>BARN Challenge global ranking</span>
+          </div>
+          <div class="stat">
+            <strong>5+</strong>
+            <span>Robotics & AI competitions</span>
+          </div>
+          <div class="stat">
+            <strong>ROS2</strong>
+            <span>SLAM, navigation, perception</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="orb-card" aria-label="Robotics visual">
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="core"></div>
+        <div class="floating-label label-1">SLAM</div>
+        <div class="floating-label label-2">Perception</div>
+        <div class="floating-label label-3">ROS2</div>
+        <div class="floating-label label-4">AMR</div>
+      </div>
+    </section>
+
+    <section id="work" class="container">
+      <div class="section-header">
+        <div class="eyebrow">Featured Work</div>
+        <h2>Selected projects</h2>
+        <p class="section-text">
+          A focused portfolio of research and engineering projects across robotics,
+          autonomous systems, and applied computer vision.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Safety-Oriented Hybrid Perception Framework</h3>
+          <p>
+            A hybrid specialist-generalist perception framework for autonomous driving,
+            focused on safety-critical corner cases and robust object detection.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Autonomous Driving</span>
+            <span class="tag">Detection</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Multi-Robot SLAM & Map Merging</h3>
+          <p>
+            ROS2-based multi-robot mapping pipeline with coordinated exploration,
+            map merging, coverage evaluation, and simulation-based experiments.
+          </p>
+          <div class="tag-row">
+            <span class="tag">ROS2</span>
+            <span class="tag">SLAM</span>
+            <span class="tag">Multi-Robot</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Deptron AMR Warehouse Robotics</h3>
+          <p>
+            Autonomous mobile robot concept for warehouse logistics, focusing on
+            peer-to-peer task allocation, modularity, and industrial deployment.
+          </p>
+          <div class="tag-row">
+            <span class="tag">AMR</span>
+            <span class="tag">Warehouse</span>
+            <span class="tag">Robotics</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="research" class="container">
+      <div class="section-header">
+        <div class="eyebrow">Research Focus</div>
+        <h2>Where I work best</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Autonomous Systems</h3>
+          <p>
+            Navigation, perception, decision-making, and system-level integration
+            for autonomous robots and vehicles.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Multi-Robot Mapping</h3>
+          <p>
+            Collaborative SLAM, map merging, exploration strategies, and performance
+            evaluation in simulation and real-world robotic setups.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Applied Computer Vision</h3>
+          <p>
+            Object detection, safety-oriented perception, corner case analysis,
+            and model evaluation for intelligent mobility systems.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications" class="container">
+      <div class="section-header">
+        <div class="eyebrow">Publications & Competitions</div>
+        <h2>Proof of work</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2026</div>
+          <div>
+            <h3>SIU 2026 — Safety-Oriented Hybrid Perception Framework</h3>
+            <p>
+              Conference paper on autonomous driving perception with hybrid
+              specialist-generalist model design and safety-focused evaluation.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2025–2026</div>
+          <div>
+            <h3>BARN Challenge — Global 7th Place</h3>
+            <p>
+              Robotics navigation challenge focused on robust navigation in
+              cluttered, obstacle-dense environments.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2025</div>
+          <div>
+            <h3>Eclipse SDV Hackathon — Finalist</h3>
+            <p>
+              Software-defined vehicle hackathon experience with international
+              collaboration and automotive software development.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-date">2024–2026</div>
+          <div>
+            <h3>Teknofest, RoboCup German Open, Meta Llama Hackathon</h3>
+            <p>
+              Multiple finalist-level experiences across robotics, AI, autonomous
+              systems, and applied software engineering competitions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="section-header">
+        <div class="eyebrow">Contact</div>
+        <h2>Let’s build autonomous systems.</h2>
+        <p class="section-text">
+          I am interested in robotics research, PhD opportunities, autonomous systems,
+          computer vision, and international engineering collaborations.
+        </p>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:yazilimcilikyolunda@gmail.com">Email Me</a>
+        <a class="btn btn-secondary" href="https://github.com/codermery" target="_blank">GitHub</a>
+        <a class="btn btn-secondary" href="https://www.linkedin.com/in/meryemkoc" target="_blank">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Meryem Koç. Robotics Software Engineer.</p>
+      <div class="socials">
+        <a href="https://github.com/codermery" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/meryemkoc" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
